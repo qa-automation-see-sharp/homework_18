@@ -1,11 +1,22 @@
+using OpenQA.Selenium.Interactions;
 using Tests.Utils.Swd.BaseElements.Abstractions;
+using Tests.Utils.Swd.Browser;
 
 namespace Tests.Utils.Swd.BaseElements;
 
 public class Button : BaseElement
 {
-    public new void Click()
+    private readonly Actions _actions = new(BrowserFactory.Driver);
+
+    public void RightClick()
     {
-        base.Click();
+        var elementToClick = FindElement();
+        _actions.ContextClick(elementToClick).Build().Perform();
+    }
+
+    public void DoubleClick()
+    {
+        var elementToClick = FindElement();
+        _actions.DoubleClick(elementToClick).Build().Perform();
     }
 }

@@ -18,7 +18,7 @@ public abstract class BaseElement
     public Point Location => FindElement().Location;
     public Size Size => FindElement().Size;
 
-    private IWebElement FindElement()
+    protected IWebElement FindElement()
     {
         return Wait(() => BrowserFactory.Driver.FindElement(Locator),
             element => element is null or { Displayed: false } or { Enabled: false });
