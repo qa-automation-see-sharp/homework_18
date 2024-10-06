@@ -72,4 +72,10 @@ public class CheckBoxPageTests
             Assert.That(outputContainsText, Is.True);
         });        
     }
+
+    [OneTimeTearDown]
+    public void OneTimeTearDown()
+    {
+        _checkBoxPage.Close();
+    }
 }

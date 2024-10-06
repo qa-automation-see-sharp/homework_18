@@ -1,7 +1,7 @@
-using OpenQA.Selenium;
-using Tests.Utils.Swd.BaseElements.Abstractions;
+using Tests.Utils.Swd.BaseElements;
 using Tests.Utils.Swd.Attribute;
 using Tests.Utils.Swd.Browser;
+using OpenQA.Selenium;
 
 namespace Tests.Utils.Swd.PageObjects;
 
@@ -9,44 +9,44 @@ public class CheckBoxPage : BasePage.BasePage
 {
     public string Url => "https://demoqa.com/checkbox";
 
-    [FindBy(XPath = "//button[contains(@class, 'rct-collapse-btn')")]
-    private BaseElement? ToggleHome { get; set; }
+    [FindBy(XPath = "//button[@aria-label='Toggle' and @title='Toggle']")]
+    private BaseElements.WebElement? ToggleHome { get; set; }
 
     [FindBy(XPath = "//span[contains(text(), 'Desktop')]")]
-    private BaseElement? FolderDesktop { get; set; }
+    private BaseElements.WebElement? FolderDesktop { get; set; }
 
     [FindBy(XPath = "//span[contains(text(), 'Documents')]")]
-    private BaseElement? FolderDocuments { get; set; }
+    private BaseElements.WebElement? FolderDocuments { get; set; }
 
     [FindBy(XPath = "//span[contains(text(), 'Downloads')]")]
-    private BaseElement? FolderDownloads { get; set; }
+    private BaseElements.WebElement? FolderDownloads { get; set; }
 
     [FindBy(CssSelector = "label[for='tree-node-home'] .rct-checkbox svg.rct-icon.rct-icon-uncheck")]
-    private BaseElement? UncheckedHome { get; set; }
+    private BaseElements.WebElement? UncheckedHome { get; set; }
 
     [FindBy(CssSelector = "label[for='tree-node-desktop'] .rct-checkbox svg.rct-icon.rct-icon-uncheck")]
-    private BaseElement? UncheckedDesktop { get; set; }
+    private BaseElements.WebElement? UncheckedDesktop { get; set; }
 
     [FindBy(CssSelector = "label[for='tree-node-documents'] .rct-checkbox svg.rct-icon.rct-icon-uncheck")]
-    private BaseElement? UncheckedDocuments { get; set; }
+    private BaseElements.WebElement? UncheckedDocuments { get; set; }
 
     [FindBy(CssSelector = "label[for='tree-node-downloads'] .rct-checkbox svg.rct-icon.rct-icon-uncheck")]
-    private BaseElement? UncheckedDownloads { get; set; }
+    private BaseElements.WebElement? UncheckedDownloads { get; set; }
 
     [FindBy(CssSelector = "label[for='tree-node-home'] .rct-checkbox svg.rct-icon.rct-icon-check")]
-    private BaseElement? CheckedHome { get; set; }
+    private BaseElements.WebElement? CheckedHome { get; set; }
 
     [FindBy(CssSelector = "label[for='tree-node-desktop'] .rct-checkbox svg.rct-icon.rct-icon-check")]
-    private BaseElement? CheckedDesktop { get; set; }
+    private BaseElements.WebElement? CheckedDesktop { get; set; }
 
     [FindBy(CssSelector = "label[for='tree-node-documents'] .rct-checkbox svg.rct-icon.rct-icon-check")]
-    private BaseElement? CheckedDocuments { get; set; }
+    private BaseElements.WebElement? CheckedDocuments { get; set; }
 
     [FindBy(CssSelector = "label[for='tree-node-downloads'] .rct-checkbox svg.rct-icon.rct-icon-check")]
-    private BaseElement? CheckedDownloads { get; set; }
+    private BaseElements.WebElement? CheckedDownloads { get; set; }
 
     [FindBy(XPath = "//*[@id='result']")]
-    private BaseElement? Output { get; set; }
+    private BaseElements.WebElement? Output { get; set; }
 
     public CheckBoxPage OpenInBrowser(BrowserNames name, params string[] args)
     {
