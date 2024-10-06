@@ -21,9 +21,4 @@
       <ProjectReference Include="..\Tests.Utils.Swd\Tests.Utils.Swd.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="ButtonsPageTests\" />
-      <Folder Include="ButtonsPageTests\" />
-    </ItemGroup>
-
 </Project>

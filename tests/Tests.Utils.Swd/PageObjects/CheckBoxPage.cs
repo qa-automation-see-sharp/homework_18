@@ -1,4 +1,3 @@
-using System.Linq;
 using Tests.Utils.Swd.Attribute;
 using Tests.Utils.Swd.BaseElements;
 using Tests.Utils.Swd.Browser;
@@ -21,13 +20,13 @@ public class CheckBoxPage : BasePage.BasePage
     [FindBy(XPath = "//button[@aria-label='Collapse all' and @title='Collapse all']")]
     public Button? CollapseAllButton { get; set; }
 
-    [FindBy(XPath = "//span[contains(text(), 'Desktop')]")]
+    [FindBy(XPath = "//span[@class='rct-title' and text()='Desktop']")]
     public WebElement? DesktopFolder { get; set; }
 
-    [FindBy(XPath = "//span[contains(text(), 'Documents')]")]
+    [FindBy(XPath = "//span[@class='rct-title' and text()='Documents']")]
     public WebElement? DocumentsFolder { get; set; }
 
-    [FindBy(XPath = "//span[contains(text(), 'Downloads')]")]
+    [FindBy(XPath = "//span[@class='rct-title' and text()='Downloads']")]
     public WebElement? DownloadsFolder { get; set; }
 
     [FindBy(XPath = "//label[@for='tree-node-home']")]
@@ -62,13 +61,11 @@ public class CheckBoxPage : BasePage.BasePage
 
     public bool VerifyCheckBoxTitle()
     {
-        var element = CheckBoxTitle;
         return CheckBoxTitle.Displayed && CheckBoxTitle.Enabled;
     }
 
     public bool CheckHomeBoxTitle()
     {
-        var element = HomeBoxTitle;
         return HomeBoxTitle.Displayed && HomeBoxTitle.Enabled;
     }
 
@@ -77,35 +74,19 @@ public class CheckBoxPage : BasePage.BasePage
         return Result.Text;
     }
 
-    public CheckBoxPage ExpandAll()
-    {
-        var toggle = ExpandAllButton;
-        toggle.Click();
-
-        return this;
-    }
-
-    public CheckBoxPage CollapseAll()
-    {
-        var toggle = CollapseAllButton;
-        toggle.Click();
-
-        return this;
-    }
-
     public bool CheckUnrolledFolders()
     {
-        var elements = new List<WebElement>
-    {
-        DesktopFolder,
-        DocumentsFolder,
-        DownloadsFolder
-    }.Where(e => e != null).ToList();
+        var elements = new List<WebElement?>
+        {
+            DesktopFolder,
+            DocumentsFolder,
+            DownloadsFolder
+        }.Where(e => e != null).ToList();
 
         return elements.Any() && elements.All(IsElementVisible);
     }
 
-    private bool IsElementVisible(WebElement element)
+    private bool IsElementVisible(WebElement? element)
     {
         return element.Displayed && element.Enabled;
     }
