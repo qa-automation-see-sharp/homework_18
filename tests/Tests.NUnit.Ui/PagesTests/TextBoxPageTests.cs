@@ -1,7 +1,7 @@
 using Tests.Utils.Swd.Browser;
 using Tests.Utils.Swd.PageObjects;
 
-namespace Tests.NUnit.Ui.TextBoxPageTests;
+namespace Tests.NUnit.Ui.PagesTests;
 
 [TestFixture]
 public class TextBoxPageTests
