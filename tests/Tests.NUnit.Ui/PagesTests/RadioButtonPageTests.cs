@@ -17,7 +17,7 @@ public class RadioButtonPageTests
     }
 
     [Test]
-    public void OpenTextBoxPage_TitleIsCorrect()
+    public void OpenRadioBoxPage_TitleIsCorrect()
     {
         var title = _radioButtonPage.Title?.Text;
 
