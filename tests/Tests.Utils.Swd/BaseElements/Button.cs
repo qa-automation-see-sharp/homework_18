@@ -6,17 +6,19 @@ namespace Tests.Utils.Swd.BaseElements;
 
 public class Button : BaseElement
 {
-    private readonly Actions _actions = new(BrowserFactory.Driver);
+   
 
     public void RightClick()
     {
+        var action = new Actions(BrowserFactory.Driver);
         var elementToClick = FindElement();
-        _actions.ContextClick(elementToClick).Build().Perform();
+        action.ContextClick(elementToClick).Build().Perform();
     }
 
     public void DoubleClick()
     {
+        var action = new Actions(BrowserFactory.Driver);
         var elementToClick = FindElement();
-        _actions.DoubleClick(elementToClick).Build().Perform();
+        action.DoubleClick(elementToClick).Build().Perform();
     }
 }
