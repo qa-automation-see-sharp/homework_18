@@ -12,7 +12,7 @@ public class CheckBoxTests
     public void OneTimeSetUp()
     {
         _checkBoxPage = new CheckBoxPage();
-        _checkBoxPage.OpenInBrowser(BrowserNames.Firefox, "--start-maximized", "--headless");
+        _checkBoxPage.OpenInBrowser(BrowserNames.Chrome, "--start-maximized", "--headless");
         _checkBoxPage.NavigateToPage();
     }
 
@@ -49,6 +49,7 @@ public class CheckBoxTests
     public void CheckBox_WhenChecked_ShouldDisplayCheckedIcon()
     {
         _checkBoxPage.ExpandAllButton?.Click();
+
         _checkBoxPage.CheckHomeBox();
         var resultText = _checkBoxPage.ResultText();
         bool areAllChecked = _checkBoxPage.CheckAllBoxesAreChecked();

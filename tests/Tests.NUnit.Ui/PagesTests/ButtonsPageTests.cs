@@ -12,7 +12,7 @@ public class ButtonsPageTests
     public void OneTimeSetUp()
     {
         _buttonsPage = new ButtonsPage();
-        _buttonsPage.OpenInBrowser(BrowserNames.Chrome, "--start-maximized", "--headless");
+        _buttonsPage.OpenInBrowser(BrowserNames.Chrome, "--start-maximized"/*, "--headless"*/);
         _buttonsPage.NavigateToPage();
     }
 
@@ -31,9 +31,11 @@ public class ButtonsPageTests
         _buttonsPage.RightClickButton?.RightClick();
         _buttonsPage.DynamicClickButton?.Click();
 
+        var doubleClickMessage = _buttonsPage.DoubleClickMessage?.Text;
+
         Assert.Multiple(() =>
         {
-            Assert.That(_buttonsPage.DoubleClickMessage?.Text, Is.EqualTo("You have done a double click"));
+            Assert.That(doubleClickMessage, Is.EqualTo("You have done a double click"));
             Assert.That(_buttonsPage.RightClickMessage?.Text, Is.EqualTo("You have done a right click"));
             Assert.That(_buttonsPage.DynamicClickMessage?.Text, Is.EqualTo("You have done a dynamic click"));
         });

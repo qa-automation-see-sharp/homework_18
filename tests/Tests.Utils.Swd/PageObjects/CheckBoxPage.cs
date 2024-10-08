@@ -76,19 +76,26 @@ public class CheckBoxPage : BasePage.BasePage
 
     public bool CheckUnrolledFolders()
     {
-        var elements = new List<WebElement?>
+        try
+        {
+            var elements = new List<WebElement?>
         {
             DesktopFolder,
             DocumentsFolder,
             DownloadsFolder
         }.Where(e => e != null).ToList();
 
-        return elements.Any() && elements.All(IsElementVisible);
-    }
+            return elements.Any() && elements.All(IsElementVisible);
 
+        }
+        catch (NullReferenceException e)
+        {
+            return false;
+        }
+    }
     private bool IsElementVisible(WebElement? element)
     {
-        return element.Displayed && element.Enabled;
+        return element != null && element.Displayed && element.Enabled;
     }
 
     public CheckBoxPage CheckHomeBox()

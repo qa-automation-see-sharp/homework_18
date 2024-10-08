@@ -15,9 +15,9 @@ public class ButtonsPage : BasePage.BasePage
     public Button? DoubleClickButton { get; set; }
     [FindBy(Id = "rightClickBtn")]
     public Button? RightClickButton { get; set; }
-    [FindBy(Id = "oPR27")]
+    [FindBy(XPath ="//button[text() = 'Click Me']")]
     public Button? DynamicClickButton { get; set; }
-    [FindBy(Id = "doubleClickMessage")]
+    [FindBy(XPath = "//p[@id = 'doubleClickMessage')]")]
     public WebElement? DoubleClickMessage { get; set; }
     [FindBy(Id = "rightClickMessage")]
     public WebElement? RightClickMessage { get; set; }
