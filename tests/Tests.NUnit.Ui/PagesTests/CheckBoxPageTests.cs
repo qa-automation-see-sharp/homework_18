@@ -32,9 +32,6 @@ public class CheckBoxTests
     [Test]
     public void NavigateToCheckBox_WhenIUnrollHome_ElementShouldBeDisplayed()
     {
-        _checkBoxPage.Close();
-        BrowserFactory.Driver?.Quit();
-
         _checkBoxPage.ExpandAllButton?.Click();
         var unrolledFolders = _checkBoxPage.CheckUnrolledFolders();
 
