@@ -6,6 +6,7 @@ namespace Tests.Utils.Swd.BaseElements;
 
 public class Button : BaseElement
 {
+   
 
     public void RightClick()
     {
