@@ -57,7 +57,7 @@ public static class InitializationHelper
         if (element == typeof(WebElements))
             return new WebElements { Locator = locator };
         if (element == typeof(RadioButton))
-            return new WebElements { Locator = locator };
+            return new RadioButton { Locator = locator };
 
 
         throw new ArgumentException("Invalid element type");
