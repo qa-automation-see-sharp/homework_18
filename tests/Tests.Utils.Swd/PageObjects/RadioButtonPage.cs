@@ -28,4 +28,8 @@ public class RadioButtonPage : BasePage.BasePage
         NavigateTo(Url);
         return this;
     }
+    public void ClickYes()
+    {
+        YesRadio.Click();
+    }
 }

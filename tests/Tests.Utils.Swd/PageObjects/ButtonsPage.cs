@@ -17,7 +17,7 @@ public class ButtonsPage : BasePage.BasePage
     public Button? RightClickButton { get; set; }
     [FindBy(XPath ="//button[text() = 'Click Me']")]
     public Button? DynamicClickButton { get; set; }
-    [FindBy(XPath = "//p[@id = 'doubleClickMessage')]")]
+    [FindBy(Id = "doubleClickMessage")]
     public WebElement? DoubleClickMessage { get; set; }
     [FindBy(Id = "rightClickMessage")]
     public WebElement? RightClickMessage { get; set; }
@@ -34,5 +34,18 @@ public class ButtonsPage : BasePage.BasePage
     {
         NavigateTo(Url);
         return this;
+    }
+    public bool WaitForElementText(WebElement element, string expectedText, int maxWaitTimeInSeconds = 10)
+    {
+        DateTime endTime = DateTime.Now.AddSeconds(maxWaitTimeInSeconds);
+        while (DateTime.Now < endTime)
+        {
+            if (element != null && element.Text == expectedText)
+            {
+                return true;
+            }
+            Thread.Sleep(500);
+        }
+        return false;
     }
 }
