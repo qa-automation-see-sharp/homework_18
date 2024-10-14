@@ -8,11 +8,11 @@ public class ButtonsPageTests
 {
     private ButtonsPage _buttonsPage;
 
-    [OneTimeSetUp]
+    [SetUp]
     public void OneTimeSetUp()
     {
         _buttonsPage = new ButtonsPage();
-        _buttonsPage.OpenInBrowser(BrowserNames.Firefox, "--start-maximized", "--headless");
+        _buttonsPage.OpenInBrowser(BrowserNames.Firefox, "--start-maximized");
         _buttonsPage.NavigateToPage();
     }
 
@@ -39,7 +39,7 @@ public class ButtonsPageTests
         });
     }
 
-    [OneTimeTearDown]
+    [TearDown]
     public void OneTimeTearDown()
     {
         _buttonsPage.Close();

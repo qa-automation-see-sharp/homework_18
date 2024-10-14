@@ -6,27 +6,23 @@ namespace Tests.NUnit.Ui.PagesTests;
 [TestFixture]
 public class CheckBoxPageTests
 {
-    private MainPage _mainPage;
+    private CheckBoxPage _checkBoxPage;
 
     [SetUp]
     public void Setup()
     {
-        _mainPage = new MainPage();
-        _mainPage.OpenInBrowser(Firefox, "--start-maximized");
+        _checkBoxPage = new CheckBoxPage();
+        _checkBoxPage.OpenInBrowser(Firefox, "--start-maximized");
+        _checkBoxPage.NavigateToPage();
     }
 
     [Test]
     public void ExpandAndCollapsAll()
     {
-        _mainPage.NavigateToPage();
-        var title = _mainPage.GetPageTitle();
-        var elementsPage = _mainPage.ClickOnCardWithName("Elements");
-
-        var checkBoxPage = elementsPage.OpenCheckBox();
-        checkBoxPage.ExpandAllClick();
-        var isExpandAll = checkBoxPage.IsExpandAll();
-        checkBoxPage.CollapseAllClick();
-        var isCollapsAll = checkBoxPage.IsExpandAll();
+        _checkBoxPage.ExpandAllClick();
+        var isExpandAll = _checkBoxPage.IsExpandAll();
+        _checkBoxPage.CollapseAllClick();
+        var isCollapsAll = _checkBoxPage.IsExpandAll();
 
         Assert.Multiple(() =>
             {
@@ -38,11 +34,9 @@ public class CheckBoxPageTests
     [Test]
     public void CheckUrlTitleCheckBoxPage()
     {
-        _mainPage.NavigateToPage();
-        var elementsPage = _mainPage.ClickOnCardWithName("Elements");
-        var checkBoxPage = elementsPage.OpenCheckBox();
-        var url = checkBoxPage.GetPageUrl();
-        var title = checkBoxPage.GetTitleCheckBox();
+        
+        var url = _checkBoxPage.GetPageUrl();
+        var title = _checkBoxPage.GetTitleCheckBox();
 
         Assert.Multiple(() =>
             {
@@ -54,12 +48,10 @@ public class CheckBoxPageTests
     [Test]
     public void CheckedHome()
     {
-         _mainPage.NavigateToPage();
-        var elementsPage = _mainPage.ClickOnCardWithName("Elements");
-        var checkBoxPage = elementsPage.OpenCheckBox();
-        checkBoxPage.CheckHomeClick();
-        var result = checkBoxPage.IsDisplayResult();
-        var text = checkBoxPage.GetResultText();
+       
+        _checkBoxPage.CheckHomeClick();
+        var result = _checkBoxPage.IsDisplayResult();
+        var text = _checkBoxPage.GetResultText();
 
         Assert.True(result);
         Assert.That(text, Does.Contain("\nhome\ndesktop\nnotes\ncommands\ndocuments\nworkspace\nreact\nangular\nveu\noffice\npublic\nprivate\nclassified\ngeneral\ndownloads\nwordFile\nexcelFile"));
@@ -68,37 +60,19 @@ public class CheckBoxPageTests
     [Test]
     public void CheckedAFewItems()
     {
-         _mainPage.NavigateToPage();
-        var elementsPage = _mainPage.ClickOnCardWithName("Elements");
-        var checkBoxPage = elementsPage.OpenCheckBox();
-        //TODO: fix
-        // checkBoxPage.CheckItemByName("Notes");
-        // checkBoxPage.CheckItemByName("Angular");
-        // checkBoxPage.CheckItemByName("Veu");
-        // checkBoxPage.CheckItemByName("General");
-        // var text = checkBoxPage.GetResultText();
-        // var homeHalfCheck = checkBoxPage.IsNodeHalfCheck("Home");
-        // var desktopHalfCheck = checkBoxPage.IsNodeHalfCheck("Desktop");
-        // var workSpaceHalfCheck = checkBoxPage.IsNodeHalfCheck("WorkSpace");
-        // var documentsHalfCheck = checkBoxPage.IsNodeHalfCheck("Documents");
-        // var generalChecked = checkBoxPage.IsNodeChecked("General");
+        _checkBoxPage.CheckItemByName("Notes");
+        _checkBoxPage.CheckItemByName("Angular");
+        _checkBoxPage.CheckItemByName("Veu");
+        _checkBoxPage.CheckItemByName("General");
+        var text = _checkBoxPage.GetResultText();
 
-
-        // Assert.Multiple(() =>
-        //     {
-        //         Assert.That(text, Does.Contain("\nnotes\nangular\nveu\ngeneral"));
-        //         Assert.True(homeHalfCheck);
-        //         Assert.True(desktopHalfCheck);
-        //         Assert.True(workSpaceHalfCheck);
-        //         Assert.True(documentsHalfCheck);
-        //         Assert.True(generalChecked);
-        //     });
+          Assert.That(text, Does.Contain("\nnotes\nangular\nveu\ngeneral"));
     }
 
     [TearDown]
     public void TearDown()
     {
-        _mainPage.Close();
+        _checkBoxPage.Close();
     }
 
 }

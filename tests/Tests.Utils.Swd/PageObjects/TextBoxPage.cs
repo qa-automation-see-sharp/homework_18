@@ -13,22 +13,31 @@ public class TextBoxPage : BasePage.BasePage
 
     [FindBy(Id = "userName-label")]
     public WebElement? UserNameLabel { get; set; }
+
     [FindBy(Id = "userName")]
     public Input? UserName { get; set; }
+
     [FindBy(Id = "userEmail-label")]
     public WebElement? UserEmailLabel { get; set; }
+
     [FindBy(Id = "userEmail")]
     public Input? UserEmail { get; set; }
+
     [FindBy(Id = "currentAddress-label")]
     public WebElement? CurrentAddressLabel { get; set; }
+
     [FindBy(Id = "currentAddress")]
     public Input? CurrentAddress { get; set; }
+
     [FindBy(Id = "permanentAddress-label")]
     public WebElement? PermanentAddressLabel { get; set; }
+
     [FindBy(Id = "permanentAddress")]
     public Input? PermanentAddress { get; set; }
-    [FindBy(XPath = "//*[@id='submit']")]
+
+    [FindBy(XPath = "//button[@id='submit']")]
     public Button? Submit { get; set; }
+
     [FindBy(Id = "output")]
     public WebElement? Output { get; set; }
 

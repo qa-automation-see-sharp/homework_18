@@ -12,7 +12,7 @@ public class TextBoxPageTests
     public void OneTimeSetUp()
     {
         _textBoxPage = new TextBoxPage();
-        _textBoxPage.OpenInBrowser(BrowserNames.Chrome, "--start-maximized", "--headless");
+        _textBoxPage.OpenInBrowser(BrowserNames.Chrome, "--start-maximized");
         _textBoxPage.NavigateToPage();
     }
     

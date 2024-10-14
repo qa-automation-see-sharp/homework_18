@@ -49,6 +49,6 @@ public abstract class BasePage
 
     public void Close()
     {
-        Driver?.Quit();
+        CloseBrowser();
     }
 }

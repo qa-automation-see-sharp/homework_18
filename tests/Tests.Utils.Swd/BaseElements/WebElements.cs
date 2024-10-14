@@ -26,4 +26,13 @@ public class WebElements : BaseElement
     {
         return FindElements().FirstOrDefault(condition);
     }
+
+    public IWebElement? FirstOrDefault()
+    {
+        return FindElements().FirstOrDefault();
+    }
+
+    public int Count(){
+        return FindElements().Count();
+    }
 }
