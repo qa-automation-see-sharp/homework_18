@@ -14,7 +14,7 @@ public class ButtonPage : BasePage.BasePage
     [FindBy(Id = "rightClickBtn")]
     private Button RightClickButton { get; set; }
 
-    [FindBy(Id = "rSPbL")]
+    [FindBy(XPath = "//button[text()='Click Me']")]
     private Button LeftClickButton { get; set; }
 
     [FindBy(Id = "doubleClickMessage")]
