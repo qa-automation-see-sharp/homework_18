@@ -20,8 +20,9 @@ public abstract class BaseElement
 
     protected IWebElement FindElement()
     {
-        return Wait(() => BrowserFactory.Driver.FindElement(Locator),
-            element => element is null or { Displayed: false } or { Enabled: false });
+        var element = Wait(() => BrowserFactory.Driver.FindElement(Locator),
+            element => element is null);
+            return element;
     }
 
     public void Clear()

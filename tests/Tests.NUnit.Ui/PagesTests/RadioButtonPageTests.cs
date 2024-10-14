@@ -1,5 +1,6 @@
 using Tests.Utils.Swd.Browser;
 using Tests.Utils.Swd.PageObjects;
+using static Tests.Utils.Swd.Browser.BrowserFactory;
 
 namespace Tests.NUnit.Ui.PagesTests;
 
@@ -86,6 +87,6 @@ public class RadioButtonPageTests
     [OneTimeTearDown]
     public void OneTimeTearDownTearDown()
     {
-        _radioButtonPage.Close();
+        CloseBrowser();
     }
 }

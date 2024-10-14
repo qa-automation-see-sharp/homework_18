@@ -1,3 +1,4 @@
+using static Tests.Utils.Swd.Browser.BrowserFactory;
 using Tests.Utils.Swd.Browser;
 using Tests.Utils.Swd.PageObjects;
 
@@ -85,6 +86,6 @@ public class ButtonsPageTests
     [OneTimeTearDown]
     public void OneTimeTearDown()
     {
-        _buttonPage.Close();
+        CloseBrowser();
     }
 }
