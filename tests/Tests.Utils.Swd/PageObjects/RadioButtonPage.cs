@@ -11,7 +11,7 @@ public class RadioButtonPage : BasePage.BasePage
     [FindBy(XPath = "//h1[contains(text(),\"Radio Button\")]")]
     public WebElement? Title { get; set; }
 
-    [FindBy(Id = "yesRadio")]
+    [FindBy(XPath = "//label[@class='custom-control-label' and @for='yesRadio']")]
     public Button? YesRadio { get; set; }
 
     [FindBy(XPath = "//p[@class='mt-3']")]
@@ -27,9 +27,5 @@ public class RadioButtonPage : BasePage.BasePage
     {
         NavigateTo(Url);
         return this;
-    }
-    public void ClickYes()
-    {
-        YesRadio.Click();
     }
 }

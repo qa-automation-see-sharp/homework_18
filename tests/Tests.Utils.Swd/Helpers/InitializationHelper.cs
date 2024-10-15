@@ -56,9 +56,6 @@ public static class InitializationHelper
             return new Input { Locator = locator };
         if (element == typeof(WebElements))
             return new WebElements { Locator = locator };
-        if (element == typeof(Radio))
-            return new Radio { Locator = locator };
-
 
         throw new ArgumentException("Invalid element type");
     }

@@ -12,7 +12,7 @@ public class RadioButtonPageTests
     public void OneTimeSetUp()
     {
         _radioButtonPage = new RadioButtonPage();
-        _radioButtonPage.OpenInBrowser(BrowserNames.Chrome, "--start-maximized"/*, "--headless"*/);
+        _radioButtonPage.OpenInBrowser(BrowserNames.Chrome, "--start-maximized", "--headless");
         _radioButtonPage.NavigateToPage();
     }
 
