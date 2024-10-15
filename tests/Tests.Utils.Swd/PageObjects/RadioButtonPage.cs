@@ -8,16 +8,26 @@ public class RadioButtonPage : BasePage.BasePage
 {
     public string Url => "https://demoqa.com/radio-button";
 
+    [FindBy(XPath = "//label[@class='custom-control-label' and @for='yesRadio']")]
+    private WebElement RadioButtonYesLabel { get; set; }
+
+    [FindBy(XPath = "//label[@class='custom-control-label' and @for='impressiveRadio']")]
+    private WebElement RadioButtonImpressiveLabel { get; set; }
+
     [FindBy(Id = "yesRadio")]
     private RadioButton RadioButtonYes { get; set; }
 
     [FindBy(Id = "impressiveRadio")]
     private RadioButton RadioButtonImpressive { get; set; }
+    
     [FindBy(Id = "noRadio")]
     private RadioButton RadioButtonNo { get; set; }
     [FindBy(ClassName = "mt-3")]
     private WebElement? Output { get; set; }
     private string _outputSelection = "You have selected";
+
+    [FindBy(ClassName = "text-success")]
+    private WebElement SuccessMessage { get; set; }
     private string _outputYes = "Yes";
     private string _outputImpressive = "Impressive";
 
@@ -35,12 +45,12 @@ public class RadioButtonPage : BasePage.BasePage
 
     public void ClickYes()
     {
-        RadioButtonYes.Click();
+        RadioButtonYesLabel.Click();
     }
 
     public void ClickImpressive()
     {
-        RadioButtonImpressive.Click();
+        RadioButtonImpressiveLabel.Click();
     }
 
     public bool IsYesDisplayed()
@@ -90,13 +100,13 @@ public class RadioButtonPage : BasePage.BasePage
 
     public bool OutputTextContainsYes()
     {
-        return RadioButtonYes.Text.Contains(_outputSelection) &&
-               RadioButtonYes.Text.Contains(_outputYes);
+        return Output.Text.Contains(_outputSelection) &&
+               SuccessMessage.Text.Contains(_outputYes);
     }
 
     public bool OutputTextContainsImpressive()
     {
-        return RadioButtonImpressive.Text.Contains(_outputSelection) &&
-               RadioButtonImpressive.Text.Contains(_outputImpressive);
+        return Output.Text.Contains(_outputSelection) &&
+               SuccessMessage.Text.Contains(_outputImpressive);
     }
 }

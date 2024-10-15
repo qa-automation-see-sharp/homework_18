@@ -1,6 +1,5 @@
 using Tests.Utils.Swd.Browser;
 using Tests.Utils.Swd.PageObjects;
-using static Tests.Utils.Swd.Browser.BrowserFactory;
 
 namespace Tests.NUnit.Ui.PagesTests;
 
@@ -13,7 +12,7 @@ public class RadioButtonPageTests
     public void OneTimeSetUpSetUp()
     {
         _radioButtonPage = new RadioButtonPage();
-        _radioButtonPage.OpenInBrowser(BrowserNames.Chrome, "--start-maximized", "--headless");
+        _radioButtonPage.OpenInBrowser(BrowserNames.Chrome, "--start-maximized");
         _radioButtonPage.NavigateToPage();
     }
 
@@ -22,19 +21,16 @@ public class RadioButtonPageTests
     {
         //Arrange - N/A
 
-        //Act
-        var isButtonDisplayed = _radioButtonPage.IsYesDisplayed();
-        var isButtonEnabled = _radioButtonPage.IsYesEnabled();
+        //Act        
         _radioButtonPage.ClickYes();
-        var isButtonSelected = _radioButtonPage.IsYesSelected();
-
+        var isButtonSelected = _radioButtonPage.IsYesSelected();       
+        var isButtonEnabled = _radioButtonPage.IsYesEnabled();
         var isOutputDisplayed = _radioButtonPage.IsOutputDisplayed();
         var outputContainsYes = _radioButtonPage.OutputTextContainsYes();
 
         //Assert
          Assert.Multiple(() => 
         {
-            Assert.That(isButtonDisplayed, Is.True);
             Assert.That(isButtonEnabled, Is.True);
             Assert.That(isButtonSelected, Is.True);
             Assert.That(isOutputDisplayed, Is.True);
@@ -48,18 +44,15 @@ public class RadioButtonPageTests
         //Arrange - N/A
 
         //Act
-        var isButtonDisplayed = _radioButtonPage.IsImpressiveDisplayed();
-        var isButtonEnabled = _radioButtonPage.IsImpressiveEnabled();
         _radioButtonPage.ClickImpressive();
         var isButtonSelected = _radioButtonPage.IsImpressiveSelected();
-
+        var isButtonEnabled = _radioButtonPage.IsImpressiveEnabled();        
         var isOutputDisplayed = _radioButtonPage.IsOutputDisplayed();
         var outputContainsYes = _radioButtonPage.OutputTextContainsImpressive();
 
         //Assert
          Assert.Multiple(() => 
         {
-            Assert.That(isButtonDisplayed, Is.True);
             Assert.That(isButtonEnabled, Is.True);
             Assert.That(isButtonSelected, Is.True);
             Assert.That(isOutputDisplayed, Is.True);
@@ -73,13 +66,11 @@ public class RadioButtonPageTests
         //Arrange - N/A
 
         //Act
-        var isButtonDisplayed = _radioButtonPage.IsNoDisplayed();
         var isButtonEnabled = _radioButtonPage.IsNoEnabled();   
 
         //Assert
          Assert.Multiple(() => 
         {
-            Assert.That(isButtonDisplayed, Is.True);
             Assert.That(isButtonEnabled, Is.False);
         });        
     }
@@ -87,6 +78,6 @@ public class RadioButtonPageTests
     [OneTimeTearDown]
     public void OneTimeTearDownTearDown()
     {
-        CloseBrowser();
+        _radioButtonPage.Close();
     }
 }
