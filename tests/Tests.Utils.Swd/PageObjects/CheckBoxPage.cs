@@ -34,33 +34,24 @@ public class CheckBoxPage : BasePage.BasePage
     [FindBy(XPath = "//div[@id='tree-node']/ol/li/ol/li[1]/span[@class='rct-text']/label/span[@class='rct-checkbox']")]
     public CheckBox DesktopCheckBox { get; set; }
     
-    private CheckBox CommandsCheckBox
-        => new(
-            By.XPath(
-                "//div[@id='tree-node']/ol/li/ol/li[1]/ol/li[2]/span[@class='rct-text']/label/span[@class='rct-checkbox']"),
-            Driver!);
+    [FindBy(XPath = "//div[@id='tree-node']/ol/li/ol/li[1]/ol/li[2]/span[@class='rct-text']/label/span[@class='rct-checkbox']")] 
+    public CheckBox CommandsCheckBox { get; set; }
 
-    private CheckBox ReactCheckBox
-        => new(By.XPath("//div[@id='tree-node']/ol/li/ol/li[2]/ol/li[1]/ol/li[1]/span[@class='rct-text']"), Driver!);
+    [FindBy(XPath = "//div[@id='tree-node']/ol/li/ol/li[2]/ol/li[1]/ol/li[1]/span[@class='rct-text']")]
+    public CheckBox ReactCheckBox { get; set; }
+    
+    [FindBy(XPath = "//div[@id='tree-node']/ol/li/ol/li[2]/span[@class='rct-text']/label/span[@class='rct-checkbox']")]
+    public CheckBox DocumentsCheckBox { get; set; }
+   
+    [FindBy(CssSelector = "[for='tree-node-documents'] [d='M19 3H5c-1\\.11 0-2 \\.9-2 2v14c0 1\\.1\\.89 2 2 2h14c1\\.11 0 2-\\.9 2-2V5c0-1\\.1-\\.89-2-2-2zm-9 14l-5-5 1\\.41-1\\.41L10 14\\.17l7\\.59-7\\.59L19 8l-9 9z']")]
+    public CheckBox DocumentsCheckBoxMarked { get; set; }
 
-    private CheckBox DocumentsCheckBox
-        => new(
-            By.XPath("//div[@id='tree-node']/ol/li/ol/li[2]/span[@class='rct-text']/label/span[@class='rct-checkbox']"),
-            Driver!);
-
-    private CheckBox DocumentsCheckBoxMarked
-        => new(
-            By.CssSelector(
-                "[for='tree-node-documents'] [d='M19 3H5c-1\\.11 0-2 \\.9-2 2v14c0 1\\.1\\.89 2 2 2h14c1\\.11 0 2-\\.9 2-2V5c0-1\\.1-\\.89-2-2-2zm-9 14l-5-5 1\\.41-1\\.41L10 14\\.17l7\\.59-7\\.59L19 8l-9 9z']"),
-            Driver!);
-
-    private CheckBox DownloadsCheckBox
-        => new(
-            By.XPath("//div[@id='tree-node']/ol/li/ol/li[3]/span[@class='rct-text']/label/span[@class='rct-checkbox']"),
-            Driver!);
-
-    private WebElement DescriptionOfSelectedItems
-        => new(By.XPath("//div[@id='result']/span[.='You have selected :']"), Driver!);
+    [FindBy(XPath = "//div[@id='tree-node']/ol/li/ol/li[3]/span[@class='rct-text']/label/span[@class='rct-checkbox']")]
+    public CheckBox DownloadsCheckBox { get; set; }
+        
+    [FindBy (XPath = "//div[@id='result']/span[.='You have selected :']")]
+    public WebElement DescriptionOfSelectedItems { get; set; }
+        
 
     public bool CheckCheckBoxPageTitle()
     {

@@ -1,3 +1,5 @@
+using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using Tests.Utils.Swd.Attribute;
 using Tests.Utils.Swd.BaseElements;
 using Tests.Utils.Swd.Browser;
@@ -11,6 +13,7 @@ public class MainPage : BasePage.BasePage
 
     [FindBy(XPath = "//div[@class='card-body']")]
     public WebElements Cards { get; set; }
+ 
 
     public MainPage OpenInBrowser(BrowserNames name, params string[] args)
     {
@@ -29,4 +32,5 @@ public class MainPage : BasePage.BasePage
         Cards.FirstOrDefault(e => e.Text.Contains(cardName))?.Click();
         return new ElementsPage();
     }
+    
 }

@@ -12,7 +12,7 @@ public abstract class BasePage
         InitializationHelper.InitializeElements(this);
     }
 
-    protected void OpenWith(BrowserNames name, params string[] args)
+    public void OpenWith(BrowserNames name, params string[] args)
     {
         BrowserFactory.OpenWith(name, args);
     }
