@@ -16,7 +16,8 @@ public class ButtonsPageTests
         _buttonsPage.NavigateToPage();
     }
     
-    [Test]
+    [Test, Order(1)]
+    [Description("This test checks if the user has landed to the page with the correct title")]
     public void OpenButtonsPage_TitleIsCorrect()
     {
         var title = _buttonsPage.ButtonsTitle?.Text;
