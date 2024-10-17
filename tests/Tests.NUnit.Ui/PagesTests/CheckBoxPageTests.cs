@@ -37,7 +37,7 @@ public class CheckBoxPageTests
     public void OpenCheckboxPageTest()
     {
             var elementsPage = _mainPage.ClickOnCardWithName;
-            _checkBoxPage = elementsPage.OpenCheckBoxPage;
+                // _checkBoxPage = elementsPage.OpenCheckBoxPage;
             var checkBoxPageTitle = _checkBoxPage.CheckCheckBoxPageTitle();
            
             Assert.That(checkBoxPageTitle, Is.True);
