@@ -14,22 +14,22 @@ public class CheckBoxPage : BasePage.BasePage
     }
 
     [FindBy(XPath = "//h1[contains(text(),\"Check Box\")]")]
-    public WebElement CheckBoxPageTitle { get; set; }
+    public WebElements CheckBoxPageTitle { get; set; }
 
     [FindBy(CssSelector = "button[title='Expand all']")]
-    public WebElement ExpandButton { get; set; }
+    public WebElements ExpandButton { get; set; }
     
     [FindBy(XPath = "//div[@id='tree-node']/ol/li/span/label/span[@class='rct-checkbox']")]
     public CheckBox HomeCheckBox { get; set; }
     
     [FindBy(CssSelector = "button[title='Collapse all']")]
-    public WebElement CollapseButton { get; set; }
+    public WebElements CollapseButton { get; set; }
        
     [FindBy(CssSelector = "[for='tree-node-home'] .rct-icon-check")]
     public CheckBox HomeCheckBoxMarked { get; set; }
         
     [FindBy(CssSelector = ".rct-icon.rct-icon-parent-close > path")]
-    public WebElement HomeFolderIconInACollapsedMenu { get; set; }
+    public WebElements HomeFolderIconInACollapsedMenu { get; set; }
         
     [FindBy(XPath = "//div[@id='tree-node']/ol/li/ol/li[1]/span[@class='rct-text']/label/span[@class='rct-checkbox']")]
     public CheckBox DesktopCheckBox { get; set; }
@@ -50,7 +50,7 @@ public class CheckBoxPage : BasePage.BasePage
     public CheckBox DownloadsCheckBox { get; set; }
         
     [FindBy (XPath = "//div[@id='result']/span[.='You have selected :']")]
-    public WebElement DescriptionOfSelectedItems { get; set; }
+    public WebElements DescriptionOfSelectedItems { get; set; }
         
 
     public bool CheckCheckBoxPageTitle()
