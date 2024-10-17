@@ -9,7 +9,7 @@ public class ButtonsPage: BasePage.BasePage
     public string Url => "https://demoqa.com/buttons";
     
     [FindBy(XPath = "//h1[contains(text(),\"Buttons\")]")]
-    private WebElement? ButtonsTitle { get; set; }
+    public WebElement? ButtonsTitle { get; set; }
     
     [FindBy(XPath = "/html//button[@id='doubleClickBtn']")]
     private Button? DoubleClickButton { get; set; }
@@ -23,7 +23,7 @@ public class ButtonsPage: BasePage.BasePage
     [FindBy(XPath = "/html//p[@id='rightClickMessage']")]
     private WebElement? RightClickMessage { get; set; }
     
-    [FindBy(ClassName = "btn btn-primary")]
+    [FindBy(ClassName = "btn-primary")]
     private Button? ClickMeButton { get; set; }
     
     [FindBy(XPath = "/html//p[@id='dynamicClickMessage']")]

@@ -9,7 +9,7 @@ public class RadioButtonPage: BasePage.BasePage
     public string Url => "https://demoqa.com/radio-button";
     
     [FindBy(XPath = "//h1[contains(text(),\"Radio Button\")]")]
-    private WebElement? RadioButtonTitle { get; set; }
+    public WebElement? Title { get; set; }
     
     [FindBy(CssSelector = "[for='yesRadio']")]
     private Button? YesRadioButton { get; set; }
