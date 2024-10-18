@@ -24,6 +24,37 @@ public class ButtonsPageTests
 
         Assert.That(title, Is.EqualTo("Buttons"));
     }
+
+    [Test, Order(2)]
+    [Description("This test checks double click on the button and the message output")]
+    public void DoubleClickButton_ReturnsMessage()
+    {
+        _buttonsPage.DoubleClick();
+        var doubleClickMessage = _buttonsPage.DoubleClickMessage?.Text;
+        
+        Assert.That(doubleClickMessage, Is.EqualTo("You have done a double click"));
+    }
+    
+    [Test, Order(3)]
+    [Description("This test checks right click on the button and the message output")]
+    public void RightClickButton_ReturnsMessage()
+    {
+        _buttonsPage.RightClick();
+        var rightClickMessage = _buttonsPage.RightClickMessage?.Text;
+        
+        Assert.That(rightClickMessage, Is.EqualTo("You have done a right click"));
+        
+    }
+    
+    [Test, Order(4)]
+    [Description("This test checks the click on the button and the message output")]
+    public void ClickButton_ReturnsMessage()
+    {
+        _buttonsPage.ClickMe();
+        var clickMessage = _buttonsPage.ClickMeMessage?.Text;
+        
+        Assert.That(clickMessage, Is.EqualTo("You have done a dynamic click"));
+    }
     
     [OneTimeTearDown]
     public void OneTimeTearDown()

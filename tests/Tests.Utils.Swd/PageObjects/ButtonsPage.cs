@@ -15,19 +15,19 @@ public class ButtonsPage: BasePage.BasePage
     private Button? DoubleClickButton { get; set; }
     
     [FindBy(XPath = "/html//p[@id='doubleClickMessage']")]
-    private WebElement? DoubleClickMessage { get; set; }
+    public WebElement? DoubleClickMessage { get; set; }
     
     [FindBy(XPath = "/html//button[@id='rightClickBtn']")]
     private Button? RightClickButton { get; set; }
     
     [FindBy(XPath = "/html//p[@id='rightClickMessage']")]
-    private WebElement? RightClickMessage { get; set; }
+    public WebElement? RightClickMessage { get; set; }
     
     [FindBy(ClassName = "btn-primary")]
     private Button? ClickMeButton { get; set; }
     
     [FindBy(XPath = "/html//p[@id='dynamicClickMessage']")]
-    private WebElement? ClickMeMessage { get; set; }
+    public WebElement? ClickMeMessage { get; set; }
 
     public ButtonsPage OpenInBrowser (BrowserNames name, params string[] args)
     {
