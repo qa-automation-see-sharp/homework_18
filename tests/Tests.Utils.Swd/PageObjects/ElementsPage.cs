@@ -23,10 +23,10 @@ public class ElementsPage : BasePage.BasePage
         return new TextBoxPage();
     }
     
-    public CheckBoxPage OpenCheckBoxPage()
+    public CheckBoxPage OpenCheckBox()
     {
-        CheckBox.Click();
-        return new CheckBoxPage(BrowserFactory.Driver);
+        CheckBox?.Click();
+        return new CheckBoxPage();
     }
     
 }

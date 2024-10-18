@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
 using Tests.Utils.Swd.Attribute;
 using Tests.Utils.Swd.BaseElements;
+using Tests.Utils.Swd.Browser;
 using static Tests.Utils.Swd.Browser.BrowserFactory;
 using WebElement = OpenQA.Selenium.WebElement;
 
@@ -8,11 +9,9 @@ namespace Tests.Utils.Swd.PageObjects;
 
 public class CheckBoxPage : BasePage.BasePage
 {
-     public CheckBoxPage(IWebDriver driver)
-    {
-        Driver = driver;
-    }
 
+    public string Url => "https://demoqa.com/checkbox";
+    
     [FindBy(XPath = "//h1[contains(text(),\"Check Box\")]")]
     public WebElements CheckBoxPageTitle { get; set; }
 
@@ -53,16 +52,22 @@ public class CheckBoxPage : BasePage.BasePage
     public WebElements DescriptionOfSelectedItems { get; set; }
         
 
-    public bool CheckCheckBoxPageTitle()
+    public CheckBoxPage OpenInBrowser(BrowserNames name, params string[] args)
     {
-        var element = CheckBoxPageTitle;
-        return element.Displayed;
+        OpenWith(name, args);
+        return this;
+    }
+    
+    public CheckBoxPage NavigateToPage()
+    {
+        NavigateTo(Url);
+        return this;
     }
 
-    public void ExpandMenu()
+    public CheckBoxPage ExpandMenu()
     {
         ExpandButton.Click();
-        Thread.Sleep(2000);
+        return this;
     }
 
     public void CollapseMenu()
