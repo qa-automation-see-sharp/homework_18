@@ -17,14 +17,14 @@ public class ButtonsPage: BasePage.BasePage
     [FindBy(XPath = "/html//p[@id='doubleClickMessage']")]
     public WebElement? DoubleClickMessage { get; set; }
     
-    [FindBy(XPath = "/html//button[@id='rightClickBtn']")]
+    [FindBy(XPath = "//button[@id='rightClickBtn']")]
     private Button? RightClickButton { get; set; }
     
     [FindBy(XPath = "/html//p[@id='rightClickMessage']")]
     public WebElement? RightClickMessage { get; set; }
     
-    [FindBy(ClassName = "btn-primary")]
-    private Button? ClickMeButton { get; set; }
+    [FindBy(XPath = "//button[text()='Click Me']")]
+    public WebElement? ClickMeButton { get; set; }
     
     [FindBy(XPath = "/html//p[@id='dynamicClickMessage']")]
     public WebElement? ClickMeMessage { get; set; }
