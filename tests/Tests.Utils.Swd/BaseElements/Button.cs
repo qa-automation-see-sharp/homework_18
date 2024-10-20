@@ -1,3 +1,4 @@
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using Tests.Utils.Swd.BaseElements.Abstractions;
 using Tests.Utils.Swd.Browser;
@@ -20,5 +21,18 @@ public class Button : BaseElement
         var action = new Actions(BrowserFactory.Driver);
         var elementToClick = FindElement();
         action.DoubleClick(elementToClick).Build().Perform();
+    }
+    public bool IsDisplayed()
+    {
+        try
+        {
+            // Find the element and return whether it's displayed
+            return FindElement().Displayed;
+        }
+        catch (NoSuchElementException)
+        {
+            // If the element is not found, return false
+            return false;
+        }
     }
 }
