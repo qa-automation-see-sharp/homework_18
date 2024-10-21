@@ -47,7 +47,7 @@ public abstract class BasePage
         Wait(() => Driver?.Navigate().Forward());
     }
 
-    //This expected to be fixed
+    //TODO:This expected to be fixed, remove this comment after review, I fix it already.
     public void Close()
     {
         CloseBrowser();
